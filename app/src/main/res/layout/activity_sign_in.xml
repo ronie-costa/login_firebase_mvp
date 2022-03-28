@@ -1,9 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".feature.signin.SignInActivity">
+    android:fillViewport="true">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/shape_background"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".feature.signin.SignInActivity">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_margin="30dp"
+            android:src="@drawable/ic_baseline_face_24"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            app:cardBackgroundColor="#00ffffff"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="0dp">
+
+            <EditText
+                android:id="@+id/edt_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#25000000"
+                android:drawableStart="@drawable/ic_baseline_alternate_email_24"
+                android:hint="E-mail"
+                android:inputType="textEmailAddress"
+                android:padding="17dp"
+                android:drawablePadding="10dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#B2FFFFFF"
+                android:textSize="18sp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="#00ffffff"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="0dp">
+
+            <EditText
+                android:id="@+id/edt_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#25000000"
+                android:drawableStart="@drawable/ic_baseline_vpn_key_24"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="17dp"
+                android:drawablePadding="10dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#B2FFFFFF"
+                android:textSize="18sp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="20dp"
+            app:cardBackgroundColor="#00FFFFFF"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="0dp">
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/bottom_background"
+                android:insetTop="0dp"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:insetBottom="0dp"
+                android:padding="17dp"
+                android:text="Login" />
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+</ScrollView>

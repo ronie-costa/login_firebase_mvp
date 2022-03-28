@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginFirebaseMVP">
         <activity
+            android:name=".feature.home.HomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".feature.signup.SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".feature.signin.SignInActivity"
-            android:exported="false" />
-        <activity
-            android:name=".feature.home.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
