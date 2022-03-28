@@ -1,119 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:layout_height="match_parent">
 
-    <LinearLayout
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@drawable/shape_background"
-        android:gravity="center"
-        android:orientation="vertical"
-        tools:context=".feature.signin.SignInActivity">
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image_background" />
 
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_margin="30dp"
-            android:src="@drawable/ic_baseline_face_24"
-            />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.80"
+        android:background="@drawable/shape_background" />
 
-        <androidx.cardview.widget.CardView
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            app:cardBackgroundColor="#00ffffff"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="0dp">
-
-            <EditText
-                android:id="@+id/edt_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#25000000"
-                android:drawableStart="@drawable/ic_baseline_alternate_email_24"
-                android:hint="E-mail"
-                android:inputType="textEmailAddress"
-                android:padding="17dp"
-                android:drawablePadding="10dp"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#B2FFFFFF"
-                android:textSize="18sp" />
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="10dp"
-            app:cardBackgroundColor="#00ffffff"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="0dp">
-
-            <EditText
-                android:id="@+id/edt_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#25000000"
-                android:drawableStart="@drawable/ic_baseline_vpn_key_24"
-                android:hint="Senha"
-                android:inputType="textPassword"
-                android:padding="17dp"
-                android:drawablePadding="10dp"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#B2FFFFFF"
-                android:textSize="18sp" />
-        </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="10dp"
-            android:gravity="end"
-            android:text="Esqueci minha senha"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            />
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="20dp"
-            app:cardBackgroundColor="#00FFFFFF"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="0dp">
-
-            <Button
-                android:id="@+id/btn_login"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/bottom_background"
-                android:insetTop="0dp"
-                android:textAllCaps="false"
-                android:textSize="16sp"
-                android:insetBottom="0dp"
-                android:padding="17dp"
-                android:text="Login" />
-        </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:paddingVertical="10dp"
+            android:layout_height="0dp"
             android:gravity="center"
-            android:text="Ainda não tem uma conta? Cadastre-se"
-            />
+            android:orientation="vertical"
+            tools:context=".feature.signin.SignInActivity">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_margin="30dp"
+                android:src="@drawable/ic_baseline_face_24" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                app:cardBackgroundColor="#00ffffff"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="0dp">
+
+                <EditText
+                    android:id="@+id/edt_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#34000000"
+                    android:drawableStart="@drawable/ic_baseline_alternate_email_24"
+                    android:drawablePadding="10dp"
+                    android:hint="E-mail"
+                    android:inputType="textEmailAddress"
+                    android:padding="17dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#B2FFFFFF"
+                    android:textSize="18sp" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp"
+                app:cardBackgroundColor="#00ffffff"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="0dp">
+
+                <EditText
+                    android:id="@+id/edt_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#34000000"
+                    android:drawableStart="@drawable/ic_baseline_vpn_key_24"
+                    android:drawablePadding="10dp"
+                    android:hint="Senha"
+                    android:inputType="textPassword"
+                    android:padding="17dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#B2FFFFFF"
+                    android:textSize="18sp" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:gravity="end"
+                android:text="Esqueci minha senha"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="#00FFFFFF"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="0dp">
+
+                <Button
+                    android:id="@+id/btn_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#0040FF"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:padding="17dp"
+                    android:text="Entrar"
+                    android:textAllCaps="false"
+                    android:textSize="16sp" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="center"
+                android:paddingVertical="10dp"
+                android:text="Ainda não tem uma conta? Cadastre-se"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
 
 
-    </LinearLayout>
+        </LinearLayout>
 
-</ScrollView>
+    </ScrollView>
+</androidx.cardview.widget.CardView>
