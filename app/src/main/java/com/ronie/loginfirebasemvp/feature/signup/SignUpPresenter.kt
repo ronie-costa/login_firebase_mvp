@@ -71,6 +71,6 @@ class SignUpPresenter : SignUpContract.Presenter {
             view.messageError(message)
         }
 
-        repository.signUpRepository(name, email, password, successfulCallback, failureCallback)
+        repository.signUp(name, email, password, successfulCallback, failureCallback)
     }
 }

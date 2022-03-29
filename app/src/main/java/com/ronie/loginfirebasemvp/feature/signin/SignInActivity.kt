@@ -39,8 +39,6 @@ class SignInActivity : AppCompatActivity(), SignInContract.View {
         binding.btnNavSignup.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
         }
-
-
     }
 
     override fun messageError(message: String) {
@@ -49,5 +47,6 @@ class SignInActivity : AppCompatActivity(), SignInContract.View {
 
     override fun login() {
         startActivity(Intent(this, HomeActivity::class.java))
+        finish()
     }
 }

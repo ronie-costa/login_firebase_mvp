@@ -8,7 +8,7 @@ class Repository : IRepository {
     private val auth = FirebaseAuth.getInstance()
     private val firestore = FirebaseFirestore.getInstance()
 
-    override fun signInRepository(
+    override fun signIn(
         email: String,
         password: String,
         isSuccessful: () -> Unit,
@@ -21,7 +21,7 @@ class Repository : IRepository {
         }
     }
 
-    override fun signUpRepository(
+    override fun signUp(
         name: String,
         email: String,
         password: String,
@@ -54,7 +54,25 @@ class Repository : IRepository {
         documentUser.set(mapUser).addOnSuccessListener {
             isSuccessful()
         }.addOnFailureListener {
-            isFailure("erro ao criar usuario")
+            isFailure("erro ao criar usuário")
+        }
+    }
+
+    override fun getUser(isSuccessful: (String) -> Unit, isFailure: (String) -> Unit) {
+        if (auth.currentUser != null) {
+            val email = auth.currentUser!!.email.toString()
+            isSuccessful(email)
+        } else {
+            isFailure("erro ao buscar dados do usuário")
+        }
+    }
+
+    override fun logout(isSuccessful: () -> Unit, isFailure: (String) -> Unit) {
+        if (auth.currentUser != null) {
+            auth.signOut()
+            isSuccessful()
+        } else {
+            isFailure("erro ao deslogar usuário!")
         }
     }
 

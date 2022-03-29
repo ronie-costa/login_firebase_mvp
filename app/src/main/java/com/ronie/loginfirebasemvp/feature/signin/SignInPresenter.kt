@@ -31,6 +31,6 @@ class SignInPresenter : SignInContract.Presenter {
             view.messageError(message)
         }
 
-        repository.signInRepository(email, password, successfulCallback, failureCallback)
+        repository.signIn(email, password, successfulCallback, failureCallback)
     }
 }

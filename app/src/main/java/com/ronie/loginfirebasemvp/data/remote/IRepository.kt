@@ -2,14 +2,14 @@ package com.ronie.loginfirebasemvp.data.remote
 
 interface IRepository {
 
-    fun signInRepository(
+    fun signIn(
         email: String,
         password: String,
         isSuccessful: () -> Unit,
         isFailure: (String) -> Unit
     )
 
-    fun signUpRepository(
+    fun signUp(
         name: String,
         email: String,
         password: String,
@@ -24,5 +24,9 @@ interface IRepository {
         isSuccessful: () -> Unit,
         isFailure: (String) -> Unit
     )
+
+    fun getUser(isSuccessful: (String) -> Unit, isFailure: (String) -> Unit)
+
+    fun logout(isSuccessful: () -> Unit, isFailure: (String) -> Unit)
 
 }
