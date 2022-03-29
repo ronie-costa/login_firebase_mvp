@@ -1,11 +1,11 @@
 package com.ronie.loginfirebasemvp.feature.signin
 
-import com.ronie.loginfirebasemvp.data.remote.RepositoryImpl
+import com.ronie.loginfirebasemvp.data.remote.Repository
 
 class SignInPresenter : SignInContract.Presenter {
 
     lateinit var view: SignInContract.View
-    private val repository = RepositoryImpl()
+    private val repository = Repository()
 
     override fun checkEmail(email: String): Boolean {
         if (!email.contains("@") || !email.contains(".")) {

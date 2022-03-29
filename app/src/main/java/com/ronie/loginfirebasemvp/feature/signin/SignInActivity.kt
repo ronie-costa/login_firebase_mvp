@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.ronie.loginfirebasemvp.databinding.ActivitySignInBinding
 import com.ronie.loginfirebasemvp.feature.home.HomeActivity
+import com.ronie.loginfirebasemvp.feature.signup.SignUpActivity
 
 class SignInActivity : AppCompatActivity(), SignInContract.View {
 
@@ -17,6 +18,9 @@ class SignInActivity : AppCompatActivity(), SignInContract.View {
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar!!.hide()
+
+        val emailExtra = intent.getStringExtra("email")
+        if (emailExtra != null) binding.edtEmail.setText(emailExtra)
 
         presenter.view = this
 
@@ -31,6 +35,12 @@ class SignInActivity : AppCompatActivity(), SignInContract.View {
 
             presenter.signIn(email, password)
         }
+
+        binding.btnNavSignup.setOnClickListener {
+            startActivity(Intent(this, SignUpActivity::class.java))
+        }
+
+
     }
 
     override fun messageError(message: String) {
@@ -38,7 +48,6 @@ class SignInActivity : AppCompatActivity(), SignInContract.View {
     }
 
     override fun login() {
-        val intent = Intent(this, HomeActivity::class.java)
-        startActivity(intent)
+        startActivity(Intent(this, HomeActivity::class.java))
     }
 }
