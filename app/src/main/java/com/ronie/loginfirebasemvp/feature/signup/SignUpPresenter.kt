@@ -63,7 +63,7 @@ class SignUpPresenter : SignUpContract.Presenter {
         }
     }
 
-    override fun signUp(email: String, password: String) {
+    override fun signUp(name: String, email: String, password: String) {
         val successfulCallback = {
             view.createUser(email)
         }
@@ -71,6 +71,6 @@ class SignUpPresenter : SignUpContract.Presenter {
             view.messageError(message)
         }
 
-        repository.signUpRepository(email, password, successfulCallback, failureCallback)
+        repository.signUpRepository(name, email, password, successfulCallback, failureCallback)
     }
 }

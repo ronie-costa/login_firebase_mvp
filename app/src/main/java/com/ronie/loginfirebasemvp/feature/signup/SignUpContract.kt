@@ -12,7 +12,7 @@ interface SignUpContract {
         fun checkEmail(email: String): Boolean
         fun checkPassword(password: String): Boolean
         fun checkConfirmPassword(confirmPassword: String, password: String): Boolean
-        fun signUp(email: String, password: String)
+        fun signUp(name: String, email: String, password: String)
     }
 
 }

@@ -35,7 +35,7 @@ class SignUpActivity : AppCompatActivity(), SignUpContract.View {
             if (presenter.checkConfirmPassword(confirmPassword, password))
                 return@setOnClickListener
 
-            presenter.signUp(email, password)
+            presenter.signUp(name, email, password)
         }
     }
 
