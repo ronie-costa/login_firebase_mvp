@@ -1,15 +1,22 @@
 package com.ronie.loginfirebasemvp.feature.signin
 
-import com.ronie.loginfirebasemvp.data.remote.Repository
+import com.ronie.loginfirebasemvp.injector.IRepositoryInjector
 
-class SignInPresenter : SignInContract.Presenter {
+class SignInPresenter(
+    view: SignInContract.View,
+    injector: IRepositoryInjector
+) : SignInContract.Presenter {
 
-    lateinit var view: SignInContract.View
-    private val repository = Repository()
+    private var repository = injector.repository()
+    private var view: SignInContract.View? = view
+
+    override fun onDestroy() {
+        this.view = null
+    }
 
     override fun checkEmail(email: String): Boolean {
         if (!email.contains("@") || !email.contains(".")) {
-            view.messageError("E-mail incorreto!")
+            view?.messageError("E-mail incorreto!")
             return true
         }
         return false
@@ -17,18 +24,18 @@ class SignInPresenter : SignInContract.Presenter {
 
     override fun checkPassword(password: String): Boolean {
         if (password.isEmpty() || password.length < 6) {
-            view.messageError("Senha incorreta!")
+            view?.messageError("Senha incorreta!")
             return true
         }
         return false
     }
 
     override fun signIn(email: String, password: String) {
-        val successfulCallback = {
-            view.login()
+        val successfulCallback: () -> Unit = {
+            view?.login()
         }
         val failureCallback: (String) -> Unit = { message ->
-            view.messageError(message)
+            view?.messageError(message)
         }
 
         repository.signIn(email, password, successfulCallback, failureCallback)

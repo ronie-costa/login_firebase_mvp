@@ -17,7 +17,7 @@ class Repository : IRepository {
         auth.signInWithEmailAndPassword(email, password).addOnSuccessListener {
             isSuccessful()
         }.addOnFailureListener {
-            isFailure("Usuario inexistente!")
+            isFailure("Error ao efetuar login, tente novamente!")
         }
     }
 
@@ -32,7 +32,7 @@ class Repository : IRepository {
             val uid = it.user!!.uid
             saveUser(uid, name, email, isSuccessful, isFailure)
         }.addOnFailureListener {
-            isFailure("erro ao criar usuario")
+            isFailure("Erro ao criar usuario")
         }
     }
 
@@ -54,7 +54,7 @@ class Repository : IRepository {
         documentUser.set(mapUser).addOnSuccessListener {
             isSuccessful()
         }.addOnFailureListener {
-            isFailure("erro ao criar usuário")
+            isFailure("Erro ao criar usuário")
         }
     }
 
@@ -63,7 +63,7 @@ class Repository : IRepository {
             val email = auth.currentUser!!.email.toString()
             isSuccessful(email)
         } else {
-            isFailure("erro ao buscar dados do usuário")
+            isFailure("Erro ao buscar dados do usuário")
         }
     }
 
@@ -72,7 +72,7 @@ class Repository : IRepository {
             auth.signOut()
             isSuccessful()
         } else {
-            isFailure("erro ao deslogar usuário!")
+            isFailure("Erro ao deslogar usuário!")
         }
     }
 

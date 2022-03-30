@@ -25,8 +25,14 @@ interface IRepository {
         isFailure: (String) -> Unit
     )
 
-    fun getUser(isSuccessful: (String) -> Unit, isFailure: (String) -> Unit)
+    fun getUser(
+        isSuccessful: (String) -> Unit,
+        isFailure: (String) -> Unit
+    )
 
-    fun logout(isSuccessful: () -> Unit, isFailure: (String) -> Unit)
+    fun logout(
+        isSuccessful: () -> Unit,
+        isFailure: (String) -> Unit
+    )
 
 }

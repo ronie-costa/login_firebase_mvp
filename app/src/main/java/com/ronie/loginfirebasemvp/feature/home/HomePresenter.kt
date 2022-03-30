@@ -1,18 +1,25 @@
 package com.ronie.loginfirebasemvp.feature.home
 
-import com.ronie.loginfirebasemvp.data.remote.Repository
+import com.ronie.loginfirebasemvp.injector.IRepositoryInjector
 
-class HomePresenter : HomeContract.Presenter {
+class HomePresenter(
+    view: HomeContract.View,
+    injector: IRepositoryInjector
+) : HomeContract.Presenter {
 
-    lateinit var view: HomeContract.View
-    private val repository = Repository()
+    private val repository = injector.repository()
+    private var view: HomeContract.View? = view
+
+    override fun onDestroy() {
+        this.view = null
+    }
 
     override fun logout() {
-        val successfulCallback = {
-            view.logout()
+        val successfulCallback: () -> Unit = {
+            view?.logout()
         }
         val failureCallback: (String) -> Unit = { message ->
-            view.messageError(message)
+            view?.messageError(message)
         }
 
         repository.logout(successfulCallback, failureCallback)
@@ -20,13 +27,12 @@ class HomePresenter : HomeContract.Presenter {
 
     override fun getUser() {
         val successfulCallback: (String) -> Unit = { email ->
-            view.startEtEmail(email)
+            view?.startEtEmail(email)
         }
         val failureCallback: (String) -> Unit = { message ->
-            view.messageError(message)
+            view?.messageError(message)
         }
 
         repository.getUser(successfulCallback, failureCallback)
     }
-
 }

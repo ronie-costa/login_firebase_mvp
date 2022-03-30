@@ -7,11 +7,12 @@ import android.widget.Toast
 import com.ronie.loginfirebasemvp.databinding.ActivitySignInBinding
 import com.ronie.loginfirebasemvp.feature.home.HomeActivity
 import com.ronie.loginfirebasemvp.feature.signup.SignUpActivity
+import com.ronie.loginfirebasemvp.injector.RepositoryInjector
 
 class SignInActivity : AppCompatActivity(), SignInContract.View {
 
     private lateinit var binding: ActivitySignInBinding
-    private val presenter = SignInPresenter()
+    private lateinit var presenter: SignInContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +23,9 @@ class SignInActivity : AppCompatActivity(), SignInContract.View {
         val emailExtra = intent.getStringExtra("email")
         if (emailExtra != null) binding.edtEmail.setText(emailExtra)
 
-        presenter.view = this
+        setPresenter(
+            SignInPresenter(this, RepositoryInjector())
+        )
 
         binding.btnLogin.setOnClickListener {
             val email = binding.edtEmail.text.toString()
@@ -41,6 +44,15 @@ class SignInActivity : AppCompatActivity(), SignInContract.View {
         }
     }
 
+    override fun onDestroy() {
+        presenter.onDestroy()
+        super.onDestroy()
+    }
+
+    override fun setPresenter(presenter: SignInContract.Presenter) {
+        this.presenter = presenter
+    }
+
     override fun messageError(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
@@ -49,4 +61,6 @@ class SignInActivity : AppCompatActivity(), SignInContract.View {
         startActivity(Intent(this, HomeActivity::class.java))
         finish()
     }
+
+
 }
